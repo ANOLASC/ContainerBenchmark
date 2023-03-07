@@ -71,9 +71,9 @@ macro_rules! insert_bench {
         paste::paste! {
             let mut [<group_ $bit>] = $c.benchmark_group("vector_insert_front_64bit");
             for size in [100, K, 10 * K, 100 * K].iter() {
-                [<group_ $bit>].throughput(Throughput::Bytes($bit));
-                [<group_ $bit>].sample_size(10);
-                [<group_ $bit>].measurement_time(std::time::Duration::from_millis(100000));
+                [<group_ $bit>].throughput(Throughput::Bytes(*size as u64));
+                [<group_ $bit>].sample_size(20);
+                // [<group_ $bit>].measurement_time(std::time::Duration::from_millis(100000));
                 [<group_ $bit>].bench_with_input(BenchmarkId::new("insert", size), size, |b, &size| {
                     b.iter(|| [<vector_insert_front_ $bit bit>] (size));
                 });
