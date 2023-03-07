@@ -1,0 +1,40 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+  deployments: write
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install criterion
+      run: cargo install cargo-criterion
+    - name: Benchmark
+      working-directory: ./rust
+      run: cargo criterion
+    - name: Update ReadMe
+      run: cp ./rust/target/criterion/reports/vector_insert_front_64bit/lines.svg ./rust/docs/lines.svg
+    - name: Git config
+      run: git config --global user.email "22795996+ANOLASC@users.noreply.github.com" && git config --global user.name "ANOLASC"
+    - name: check for changes
+      run: git status
+    - name: stage changed files
+      run: git add .
+    - name: commit changed files
+      run: git commit -m "Auto update"
+    - name: fetch from main
+      run: git fetch origin main
+    - name: push code to main
+      run: git push origin HEAD:main
+
