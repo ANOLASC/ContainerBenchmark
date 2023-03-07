@@ -3,10 +3,11 @@ use criterion::{criterion_group, criterion_main, Criterion};
 use criterion::BenchmarkId;
 use criterion::Throughput;
 
+// #[inline]
 // pub fn vector_insert_front_16bit(insert_size: usize) {
 //     let mut bench_vec = Vec::new();
 //     for _ in 0..insert_size {
-//         bench_vec.insert(0, 1_i16);
+//         bench_vec.insert(0, 1_u16);
 //     }
 // }
 
@@ -27,17 +28,17 @@ pub fn vector_insert_front_64bit(insert_size: usize) {
 pub fn vector_random_remove() {}
 
 pub fn insert_benchmark(c: &mut Criterion) {
-    static K: usize = 1000;
+    static K: usize = 1024;
 
     insert_bench!(16, c);
 
-    // let mut group_16 = c.benchmark_group("vector_insert_front_32bit");
+    // let mut group_16 = c.benchmark_group("vector_insert_front_16bit");
     // for size in [100, K, 10 * K, 100 * K].iter() {
-    //     group_16.throughput(Throughput::Bytes(16_u64));
-    //     group_16.sample_size(10);
-    //     group_16.measurement_time(std::time::Duration::from_millis(100000));
+    //     group_16.throughput(Throughput::Bytes(*size as u64));
+    //     group_16.sample_size(100);
+    //     // group_16.measurement_time(std::time::Duration::from_millis(1000));
     //     group_16.bench_with_input(BenchmarkId::new("insert", size), size, |b, &size| {
-    //         b.iter(|| vector_insert_front_32bit(size));
+    //         b.iter(|| vector_insert_front_16bit(size));
     //     });
     // }
     // group_16.finish();
@@ -70,10 +71,10 @@ macro_rules! insert_bench {
     ($bit: tt, $c: ident) => {
         paste::paste! {
             let mut [<group_ $bit>] = $c.benchmark_group("vector_insert_front_64bit");
-            for size in [100, K, 10 * K, 100 * K].iter() {
-                [<group_ $bit>].throughput(Throughput::Bytes($bit));
-                [<group_ $bit>].sample_size(10);
-                [<group_ $bit>].measurement_time(std::time::Duration::from_millis(100000));
+            for size in [K, 10 * K, 20 * K, 50 * K, 100 * K].iter() {
+                [<group_ $bit>].throughput(Throughput::Bytes(*size as u64));
+                [<group_ $bit>].sample_size(50);
+                // [<group_ $bit>].measurement_time(std::time::Duration::from_millis(10000));
                 [<group_ $bit>].bench_with_input(BenchmarkId::new("insert", size), size, |b, &size| {
                     b.iter(|| [<vector_insert_front_ $bit bit>] (size));
                 });
@@ -87,10 +88,11 @@ use paste::paste;
 macro_rules! create_vec_insert {
     ($bit: tt) => {
         paste! {
+            #[inline]
             fn [<vector_insert_front_ $bit bit>](insert_size: usize) {
                 let mut [<vec_ $bit>] = Vec::new();
                 for _ in 0..insert_size {
-                    [<vec_ $bit>].insert(0, 1 as [<u $bit>]);
+                    [<vec_ $bit>].insert(0, [<1_u $bit>]);
                 }
             }
         }
