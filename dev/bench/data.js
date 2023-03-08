@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1678271259413,
+  "lastUpdate": 1678272019244,
   "repoUrl": "https://github.com/ANOLASC/ContainerBenchmark",
   "entries": {
     "Benchmark": [
@@ -47,6 +47,54 @@ window.BENCHMARK_DATA = {
             "name": "vector_insert_front_64bit/insert/102400",
             "value": 400315419,
             "range": "± 5591730",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "22795996+ANOLASC@users.noreply.github.com",
+            "name": "ANOLASC",
+            "username": "ANOLASC"
+          },
+          "committer": {
+            "email": "22795996+ANOLASC@users.noreply.github.com",
+            "name": "ANOLASC",
+            "username": "ANOLASC"
+          },
+          "distinct": true,
+          "id": "61ce78e7580a0ff665d63767e381c442dd9dabea",
+          "message": "delete gh page workflow",
+          "timestamp": "2023-03-08T18:33:44+08:00",
+          "tree_id": "f814b34a9149d3186060d6de743dea2f2cf045fc",
+          "url": "https://github.com/ANOLASC/ContainerBenchmark/commit/61ce78e7580a0ff665d63767e381c442dd9dabea"
+        },
+        "date": 1678272018160,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "vector_insert_front_64bit/insert/100",
+            "value": 1347,
+            "range": "± 28",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/1024",
+            "value": 29334,
+            "range": "± 652",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/10240",
+            "value": 2182634,
+            "range": "± 37340",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/102400",
+            "value": 425597180,
+            "range": "± 8016747",
             "unit": "ns/iter"
           }
         ]
