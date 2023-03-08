@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1678272019244,
+  "lastUpdate": 1678274304156,
   "repoUrl": "https://github.com/ANOLASC/ContainerBenchmark",
   "entries": {
     "Benchmark": [
@@ -95,6 +95,56 @@ window.BENCHMARK_DATA = {
             "name": "vector_insert_front_64bit/insert/102400",
             "value": 425597180,
             "range": "± 8016747",
+            "unit": "ns/iter"
+          }
+        ]
+      }
+    ],
+    "Rust Benchmark": [
+      {
+        "commit": {
+          "author": {
+            "email": "22795996+ANOLASC@users.noreply.github.com",
+            "name": "ANOLASC",
+            "username": "ANOLASC"
+          },
+          "committer": {
+            "email": "22795996+ANOLASC@users.noreply.github.com",
+            "name": "ANOLASC",
+            "username": "ANOLASC"
+          },
+          "distinct": true,
+          "id": "5167cd70bfbb750bf9a5741f3418b2ff49098d9f",
+          "message": "generate benchmark report",
+          "timestamp": "2023-03-08T19:14:47+08:00",
+          "tree_id": "9947d05e5283107a130a40e0dda51853eac826dc",
+          "url": "https://github.com/ANOLASC/ContainerBenchmark/commit/5167cd70bfbb750bf9a5741f3418b2ff49098d9f"
+        },
+        "date": 1678274303619,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "vector_insert_front_64bit/insert/100",
+            "value": 1143,
+            "range": "± 6",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/1024",
+            "value": 24700,
+            "range": "± 153",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/10240",
+            "value": 1619973,
+            "range": "± 8712",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/102400",
+            "value": 222721800,
+            "range": "± 1498003",
             "unit": "ns/iter"
           }
         ]
