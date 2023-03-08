@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1678274304156,
+  "lastUpdate": 1678275217722,
   "repoUrl": "https://github.com/ANOLASC/ContainerBenchmark",
   "entries": {
     "Benchmark": [
@@ -145,6 +145,54 @@ window.BENCHMARK_DATA = {
             "name": "vector_insert_front_64bit/insert/102400",
             "value": 222721800,
             "range": "± 1498003",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "22795996+ANOLASC@users.noreply.github.com",
+            "name": "ANOLASC",
+            "username": "ANOLASC"
+          },
+          "committer": {
+            "email": "22795996+ANOLASC@users.noreply.github.com",
+            "name": "ANOLASC",
+            "username": "ANOLASC"
+          },
+          "distinct": true,
+          "id": "78064fa0c6e1180f4a9c1fa82a2284303f03971c",
+          "message": "2",
+          "timestamp": "2023-03-08T19:30:11+08:00",
+          "tree_id": "7bdc06aa2ffba9bb5ac6652b54a02666e8ba566a",
+          "url": "https://github.com/ANOLASC/ContainerBenchmark/commit/78064fa0c6e1180f4a9c1fa82a2284303f03971c"
+        },
+        "date": 1678275217189,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "vector_insert_front_64bit/insert/100",
+            "value": 968,
+            "range": "± 1",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/1024",
+            "value": 20747,
+            "range": "± 6",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/10240",
+            "value": 1363651,
+            "range": "± 6079",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "vector_insert_front_64bit/insert/102400",
+            "value": 186565796,
+            "range": "± 1387108",
             "unit": "ns/iter"
           }
         ]
